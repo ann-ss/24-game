@@ -37,6 +37,23 @@ public class TwentyFour {
         System.out.println("in a comma separated list with no spaces (eg. '1,2,3,4') ");
         System.out.println("or enter 'q' to quit:");
     }
+    
+    public static boolean canMake24FromTwoNumbers(int a, int b) {
+        if (a + b == 24 || a * b == 24 || Math.abs(a - b) == 24) {
+            return true;
+        }
+        if (a != 0 && b != 0) {
+            if (a < b) {
+                int temp = a;
+                a = b;
+                b = a;
+            }
+            if (a % b == 0 && a / b == 24) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static boolean solve(int[] arr) {
         Set<Integer> s01 = operate(arr[0], arr[1]);
